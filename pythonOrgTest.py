@@ -11,11 +11,11 @@ assert "No results found." not in driver.page_source
 driver.close()
 
 import unittest
-import time
-
-import tkinter as tk
-from tkinter import ttk
-from tkcalendar import Calendar, DateEntry
+# import time
+#
+# import tkinter as tk
+# from tkinter import ttk
+# from tkcalendar import Calendar, DateEntry
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By

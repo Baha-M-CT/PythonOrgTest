@@ -1,1 +1,10 @@
-/geckodriver.log
+*.iml
+.idea
+*.class
+target/
+*.DS_Store
+venv
+*.log
+.pytest_cache
+**/__pycache__
+*temp*.py

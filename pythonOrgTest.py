@@ -11,20 +11,19 @@
 # driver.close()
 
 import unittest
-import time
-
-import tkinter as tk
-from tkinter import ttk
-from tkcalendar import Calendar, DateEntry
 
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
+
 
 class PythonOrgSearch(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        service = Service(ChromeDriverManager().install())
+        self.driver = webdriver.Chrome(service=service)
 
     def test_search_in_python_org(self):
         driver = self.driver
@@ -34,11 +33,13 @@ class PythonOrgSearch(unittest.TestCase):
         elem = driver.find_element(By.NAME, "q")
 
         elem.send_keys("pycon")
+        from selenium.webdriver import Keys
         elem.send_keys(Keys.RETURN)
         assert "No results found." not in driver.page_source
 
     def tearDown(self):
         self.driver.close()
+
 
 if __name__ == "__main__":
     unittest.main()

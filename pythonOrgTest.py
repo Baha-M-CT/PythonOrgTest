@@ -11,15 +11,11 @@
 # driver.close()
 
 import unittest
-import time
-
-import tkinter as tk
-from tkinter import ttk
-from tkcalendar import Calendar, DateEntry
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+
 
 class PythonOrgSearch(unittest.TestCase):
 
@@ -39,6 +35,7 @@ class PythonOrgSearch(unittest.TestCase):
 
     def tearDown(self):
         self.driver.close()
+
 
 if __name__ == "__main__":
     unittest.main()
